@@ -1,29 +1,28 @@
-package components.buttons.navigate;
+package components.buttons.authorize;
 
-import components.BaseComponent;
+import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class NavigateButton extends BaseComponent {
+public abstract class AuthorizeButtons extends AbstractComponent {
 
-    private static final String BUTTON_LOCATOR_PATTERN = "//nav//a[contains(@title,'%s')]"; //nav//a[contains(text(),'%s')]
+    private static final String BUTTON_LOCATOR_PATTERN = "//body//div//form/h3[contains(text(),'%s')]";
 
     private String label;
     private By buttonLocator;
 
-
-    public NavigateButton(WebDriver driver, String label) {
+    public AuthorizeButtons(WebDriver driver, String label) {
         super(driver);
         this.label = label;
         this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, label));
     }
 
-    /*public static void click() {
+    public void click() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(buttonLocator));
-    }*/
+    }
 
     @Override
     public boolean isComponentDisplayed() {
@@ -34,4 +33,5 @@ public class NavigateButton extends BaseComponent {
         }
         return true;
     }
+
 }

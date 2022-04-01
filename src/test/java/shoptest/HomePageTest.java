@@ -1,7 +1,12 @@
 package shoptest;
 
-public class HomePageTest extends BaseTest{
-    public void checkSignIn() {
+import org.testng.annotations.Test;
 
+public class HomePageTest extends BaseTest{
+
+    @Test
+    public void openHomePageTest() {
+        mainSteps.openHomePage();
     }
+
 }

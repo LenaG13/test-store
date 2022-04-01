@@ -1,10 +1,10 @@
 package components.forms;
 
-import components.BaseComponent;
+import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Input extends BaseComponent {
+public class Input extends AbstractComponent {
 
     private static final String INPUT_LOCATOR_PATTERN = "//label[text() = '%s']/ancestor::lightning-input//input";
 

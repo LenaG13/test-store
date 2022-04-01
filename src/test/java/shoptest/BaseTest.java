@@ -1,33 +1,28 @@
 package shoptest;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import steps.AccountsSteps;
+import steps.AuthenticationSteps;
+import steps.MyAccountsSteps;
 import steps.MainSteps;
 
 import java.time.Duration;
-
-import static components.Config.CLEAR_COOKIES_AND_STORAGE;
-import static components.Config.HOLD_BROWSER_OPEN;
 
 public class BaseTest {
 
     protected WebDriver driver;
     protected MainSteps mainSteps;
-    protected AccountsSteps accountsSteps;
-
+    protected AuthenticationSteps authenticationSteps;
+    protected MyAccountsSteps myAccountsSteps;
 
     @BeforeMethod
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
+        //chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--ignore-popup-blocking");
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--disable-notifications");
@@ -35,7 +30,8 @@ public class BaseTest {
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         mainSteps = new MainSteps(driver);
-        accountsSteps = new AccountsSteps(driver);
+        authenticationSteps = new AuthenticationSteps(driver);
+        myAccountsSteps = new MyAccountsSteps(driver);
 
     }
 

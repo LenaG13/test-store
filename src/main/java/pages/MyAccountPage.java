@@ -8,7 +8,7 @@ public class MyAccountPage extends BasePage {
 
     private static final String BASE_URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
 
-    public static final By HEADER =By.xpath("//body//span[contains(text(),'My account')]");
+    public static final By HEADER =By.xpath("//body//h1[contains(text(),'My account')]");
 
     public MyAccountPage(WebDriver driver) {
         super(driver);

@@ -1,10 +1,10 @@
 package components.forms;
 
-import components.BaseComponent;
+import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class TextArea extends BaseComponent {
+public class TextArea extends AbstractComponent {
 
     private static final String TEXT_AREA_LOCATOR_PATTERN = "//label[contains(.,'%s')]/ancestor::slot[@name='inputField']//textarea";
 

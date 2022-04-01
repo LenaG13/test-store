@@ -1,12 +1,12 @@
 package components.forms;
 
-import components.BaseComponent;
+import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class Dropdown extends BaseComponent {
+public class Dropdown extends AbstractComponent {
 
     private static final String DROPDOWN_LOCATOR_PATTERN =
             "//label[text()='%s']/ancestor::lightning-combobox//button";

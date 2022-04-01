@@ -1,16 +1,15 @@
 package pages;
 
-import components.buttons.navigate.SignInButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends BasePage {
+public class CreateAccountPage extends BasePage {
 
-    private static final String BASE_URL = "http://automationpractice.com/";
-    public static final By HEADER = By.xpath("//div[@id='header_logo']");
+    private static final String BASE_URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation";
+    public static final By HEADER =By.xpath("//body//h1[contains(text(),'Create an account')]");
 
-    public HomePage(WebDriver driver) {
+    public CreateAccountPage(WebDriver driver) {
         super(driver);
     }
 

@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class AccountModel {
 
+    String Title;
     String FirstName;
     String LastName;
     String Address;

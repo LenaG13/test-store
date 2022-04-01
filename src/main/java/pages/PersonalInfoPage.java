@@ -1,16 +1,16 @@
 package pages;
 
-import components.buttons.navigate.SignInButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends BasePage {
+public class PersonalInfoPage extends BasePage {
 
-    private static final String BASE_URL = "http://automationpractice.com/";
-    public static final By HEADER = By.xpath("//div[@id='header_logo']");
+    private static final String BASE_URL = "http://automationpractice.com/index.php?controller=identity";
 
-    public HomePage(WebDriver driver) {
+    public static final By HEADER =By.xpath("//body//span[contains(text(),'My account')]");
+
+    public PersonalInfoPage(WebDriver driver) {
         super(driver);
     }
 

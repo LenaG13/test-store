@@ -1,11 +1,11 @@
 package components.forms;
 
-import components.BaseComponent;
+import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class SearchField extends BaseComponent {
+public class SearchField extends AbstractComponent {
 
     private static final String SEARCH_INPUT_LOCATOR_PATTERN = "//label[text() = '%s']/ancestor::lightning-grouped-combobox//div[@lightning-basecombobox_basecombobox]//input";
     private static final String OPTION_LIST_PATTERN = "//div[@lightning-basecombobox_basecombobox]//span[@title='%s']";
