@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="2">
+
+    <parameter name="newmail" value="tipqn@mailkert.com"/>
+    <parameter name="email" value="54uch@mail2run.com"/>
+    <parameter name="password" value="Qwerty123"/>
+
+    <test name="C:/Users/48534/IdeaProjects/test-store">
+        <classes>
+            <class name="shoptest.HomePageTest">
+                <methods>
+                    <include name="openHomePageTest"/>
+                </methods>
+            </class>
+            <class name="shoptest.AccountTest">
+                <methods>
+                    <include name="openAuthenticationPageTest"/>
+                    <include name="checkFormCreateNewAccountTest"/>
+                    <include name="checkFormRegisteredAccountTest"/>
+                    <include name="openCreateNewAccountPageTest"/>
+                    <include name="openRegisteredAccountPageTest"/>
+                    <exclude name="addNewAccountTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

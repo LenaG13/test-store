@@ -32,8 +32,8 @@ public class AuthenticationPage extends BasePage {
         return this;
     }
 
-    public void createNewAccount(String emailNew) {
-        driver.findElement(EMAIL_CREATE).sendKeys(emailNew);
+    public void createNewAccount(String newmail) {
+        driver.findElement(EMAIL_CREATE).sendKeys(newmail);
         driver.findElement(CREATE_ACCOUNT_BUTTON).click();
     }
 

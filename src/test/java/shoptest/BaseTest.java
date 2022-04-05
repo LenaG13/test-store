@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import steps.AuthenticationSteps;
+import steps.CreateAccountSteps;
 import steps.MyAccountsSteps;
 import steps.MainSteps;
 
@@ -17,12 +18,13 @@ public class BaseTest {
     protected MainSteps mainSteps;
     protected AuthenticationSteps authenticationSteps;
     protected MyAccountsSteps myAccountsSteps;
+    protected CreateAccountSteps createAccountSteps;
 
     @BeforeMethod
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--ignore-popup-blocking");
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--disable-notifications");
@@ -31,6 +33,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         mainSteps = new MainSteps(driver);
         authenticationSteps = new AuthenticationSteps(driver);
+        createAccountSteps = new CreateAccountSteps(driver);
         myAccountsSteps = new MyAccountsSteps(driver);
 
     }

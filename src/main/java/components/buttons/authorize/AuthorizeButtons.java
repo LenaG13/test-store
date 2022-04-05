@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public abstract class AuthorizeButtons extends AbstractComponent {
 
-    private static final String BUTTON_LOCATOR_PATTERN = "//body//div//form/h3[contains(text(),'%s')]";
+    private static final String BUTTON_LOCATOR_PATTERN = "//form//button[@id='%s']";
 
     private String label;
     private By buttonLocator;
