@@ -14,6 +14,7 @@ public class AuthenticationPage extends BasePage {
     }
 
     public static final By EMAIL_CREATE = By.id("email_create");
+    //public static final By EMAIL_CREATE = By.xpath("//input[@id='email_create']");
     private static final By CREATE_ACCOUNT_BUTTON = By.id("SubmitCreate");
 
     public static final By EMAIL_ADDRESS = By.id("email");
@@ -32,8 +33,8 @@ public class AuthenticationPage extends BasePage {
         return this;
     }
 
-    public void createNewAccount(String newmail) {
-        driver.findElement(EMAIL_CREATE).sendKeys(newmail);
+    public void createNewAccount(String emailNew) {
+        driver.findElement(EMAIL_CREATE).sendKeys(emailNew);
         driver.findElement(CREATE_ACCOUNT_BUTTON).click();
     }
 

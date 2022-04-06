@@ -7,6 +7,7 @@ import org.testng.Assert;
 import pages.AuthenticationPage;
 import pages.CreateAccountPage;
 import pages.MyAccountPage;
+import utils.PropertiesUtils;
 
 public class AuthenticationSteps extends AbstractStep {
 
@@ -16,13 +17,9 @@ public class AuthenticationSteps extends AbstractStep {
     private CreateAccountPage createAccountPage;
     private MyAccountPage myAccountPage;
 
-    public static final String NEW_VALID_EMAIL = System.getProperty("newmail");
-    public static final String VALID_EMAIL = System.getProperty("email");
-    public static final String VALID_PASSWORD = System.getProperty("password");
-
-    /*public static final String NEW_VALID_EMAIL = "newmail";
-    public static final String VALID_EMAIL = "email";
-    public static final String VALID_PASSWORD = "password";*/
+    public static final String NEW_VALID_EMAIL = PropertiesUtils.getEnv("emailNew");
+    public static final String VALID_EMAIL = PropertiesUtils.getEnv("email");
+    public static final String VALID_PASSWORD = PropertiesUtils.getEnv("password");
 
     public AuthenticationSteps(WebDriver driver) {
         super(driver);
@@ -33,7 +30,6 @@ public class AuthenticationSteps extends AbstractStep {
         authenticationPage.openPage();
         validatePageIsLoaded(authenticationPage);
         authenticationPage.createNewAccount(NEW_VALID_EMAIL);
-        //newAccountButton.click();
         createAccountPage = new CreateAccountPage(driver);
         validatePageIsLoaded(createAccountPage);
         return new CreateAccountSteps(driver);
@@ -44,7 +40,6 @@ public class AuthenticationSteps extends AbstractStep {
         authenticationPage.openPage();
         validatePageIsLoaded(authenticationPage);
         authenticationPage.registeredAccount(VALID_EMAIL, VALID_PASSWORD);
-        //registeredButton.click();
         myAccountPage = new MyAccountPage(driver);
         validatePageIsLoaded(myAccountPage);
         return new MyAccountsSteps(driver);

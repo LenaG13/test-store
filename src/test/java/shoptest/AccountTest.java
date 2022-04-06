@@ -1,6 +1,5 @@
 package shoptest;
 
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class AccountTest extends BaseTest {
@@ -36,11 +35,17 @@ public class AccountTest extends BaseTest {
     public void addNewAccountTest() {
         mainSteps
                 .openHomePage()
-                .openAuthenticationPage();
-        authenticationSteps
-                .openCreateNewAccountPage();
-        createAccountSteps
+                .openAuthenticationPage()
+                .openCreateNewAccountPage()
                 .createNewAccount();
+        //.validateAccount();
     }
+
+    @Test
+    public void checkAccountTest() {
+        authenticationSteps.openRegisteredAccountPage();
+        myAccountsSteps.validateAccount();
+    }
+
 
 }

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public abstract class NavigateButtons extends AbstractComponent {
 
-    private static final String BUTTON_LOCATOR_PATTERN = "//nav//a[contains(@title,'%s')]"; //nav//a[contains(text(),'%s')]
+    private static final String BUTTON_LOCATOR_PATTERN = "//nav//a[contains(@title,'%s')]";
     private String label;
     private By buttonLocator;
 

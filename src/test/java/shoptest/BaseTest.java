@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import steps.AuthenticationSteps;
 import steps.CreateAccountSteps;
 import steps.MyAccountsSteps;
@@ -17,8 +19,8 @@ public class BaseTest {
     protected WebDriver driver;
     protected MainSteps mainSteps;
     protected AuthenticationSteps authenticationSteps;
-    protected MyAccountsSteps myAccountsSteps;
     protected CreateAccountSteps createAccountSteps;
+    protected MyAccountsSteps myAccountsSteps;
 
     @BeforeMethod
     public void setup() {
