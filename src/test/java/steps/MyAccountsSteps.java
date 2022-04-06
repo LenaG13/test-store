@@ -10,8 +10,6 @@ import pages.AuthenticationPage;
 import pages.CreateAccountPage;
 import pages.MyAccountPage;
 
-import static steps.AuthenticationSteps.NEW_VALID_EMAIL;
-
 public class MyAccountsSteps extends AbstractStep {
 
     private AuthenticationPage authenticationPage;

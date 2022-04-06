@@ -3,35 +3,38 @@ package components.forms;
 import components.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class Dropdown extends AbstractComponent {
 
-    private static final String DROPDOWN_LOCATOR_PATTERN = "//body//div//form//select[@id='%s']";
-    private static final String OPTION_LIST_PATTERN = "//body//div//form//select[@id='%s']/option[contains(.,'%s')]";
+    private static final String DROPDOWN_LOCATOR_PATTERN = "//select[@id='%s']";
+    private static final String OPTION_LOCATOR_PATTERN = "//select[@id='%s']/option[contains(.,'%s')]";
 
-    private final By optionLocator;
-    private final By dropDownLocator;
+    private final By dropdownLocator;
+    private final String label;
 
-    public Dropdown(WebDriver driver, String label, String optionName) {
+    public Dropdown(WebDriver driver, String label) {
         super(driver);
-        this.optionLocator = By.xpath(String.format(OPTION_LIST_PATTERN, label, optionName));
-        this.dropDownLocator = By.xpath(String.format(DROPDOWN_LOCATOR_PATTERN, label));
+        this.label = label;
+        this.dropdownLocator = By.xpath(String.format(DROPDOWN_LOCATOR_PATTERN, label));
     }
 
     @Override
     public boolean isComponentDisplayed() {
-        return driver.findElement(dropDownLocator).isDisplayed();
+        return driver.findElement(dropdownLocator).isDisplayed();
     }
 
-    private void openOptionsPopup() {
-        driver.findElement(dropDownLocator).click();
+    private void openOptionPopup() {
+        driver.findElement(dropdownLocator).click();
     }
 
-    public void selectOption() {
-        openOptionsPopup();
-        By option = optionLocator;
-        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(option));
-        driver.findElement(option).click();
+    public void selectOption(String optionName) {
+        openOptionPopup();
+        By optionLocator = By.xpath(String.format(OPTION_LOCATOR_PATTERN, label, optionName));
+        //explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(optionLocator));
+        driver.findElement(optionLocator).click();
+        explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(dropdownLocator, optionName));
     }
 }
