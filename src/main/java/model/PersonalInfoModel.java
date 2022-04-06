@@ -9,18 +9,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @Data
 @ToString
-public class AccountModel {
+public class PersonalInfoModel {
 
     String Title;
     String FirstName;
     String LastName;
     String Email;
-    String Password;
-    String Address;
-    String City;
-    String State;
-    String Zip;
-    String Country;
-    String MobilePhone;
 
 }

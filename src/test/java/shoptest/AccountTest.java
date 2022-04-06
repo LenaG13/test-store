@@ -1,6 +1,10 @@
 package shoptest;
 
+import model.AccountModel;
+import model.PersonalInfoModel;
 import org.testng.annotations.Test;
+import utils.AccountModelUtils;
+import utils.PersonalInfoUtils;
 
 public class AccountTest extends BaseTest {
 
@@ -31,20 +35,22 @@ public class AccountTest extends BaseTest {
         authenticationSteps.openRegisteredAccountPage();
     }
 
+    AccountModel testAccount = AccountModelUtils.getDefaultAccountModel();
+    PersonalInfoModel testPersonInfoModel= PersonalInfoUtils.getDefaultPersonalInfoModel();
+
     @Test
     public void addNewAccountTest() {
         mainSteps
                 .openHomePage()
                 .openAuthenticationPage()
                 .openCreateNewAccountPage()
-                .createNewAccount();
-        //.validateAccount();
+                .createNewAccount(testAccount);
     }
 
     @Test
-    public void checkAccountTest() {
+    public void validateAccountTest() {
         authenticationSteps.openRegisteredAccountPage();
-        myAccountsSteps.validateAccount();
+        myAccountsSteps.validatePersonalInfo(testPersonInfoModel);
     }
 
 

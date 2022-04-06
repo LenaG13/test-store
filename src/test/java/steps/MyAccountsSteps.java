@@ -1,13 +1,12 @@
 package steps;
 
 import components.account.AccountDetailsComponent;
-import components.forms.Dropdown;
-import components.forms.Input;
-import org.openqa.selenium.By;
+
+import model.AccountModel;
+import model.PersonalInfoModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.AuthenticationPage;
-import pages.CreateAccountPage;
 import pages.MyAccountPage;
 
 public class MyAccountsSteps extends AbstractStep {
@@ -19,17 +18,23 @@ public class MyAccountsSteps extends AbstractStep {
         super(driver);
     }
 
-    public void validateAccount(){
+    public void validatePersonalInfo(PersonalInfoModel expectedPersonInfo){
+        myAccountPage = new MyAccountPage(driver);
         myAccountPage.openInformation();
+        PersonalInfoModel actualPersonInfo = getActualPersonInfoAccount();
         Assert.assertEquals(
-                new AccountDetailsComponent(driver, "firstname").getValue(),
-                " "
+                actualPersonInfo,
+                expectedPersonInfo,
+                String.format("Personal information is not valid: %s", actualPersonInfo)
         );
-        Assert.assertEquals(
-                new AccountDetailsComponent(driver, "lastname").getValue(),
-                " "
-        );
+    }
 
+    private PersonalInfoModel getActualPersonInfoAccount() {
+        PersonalInfoModel actualPersonalInfoModel = new PersonalInfoModel();
+        actualPersonalInfoModel.setFirstName(new AccountDetailsComponent(driver, "firstname").getValue());
+        actualPersonalInfoModel.setLastName(new AccountDetailsComponent(driver, "lastname").getValue());
+        actualPersonalInfoModel.setEmail(new AccountDetailsComponent(driver, "email").getValue());
+        return actualPersonalInfoModel;
     }
 
 }

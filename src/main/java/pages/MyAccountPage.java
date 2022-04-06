@@ -32,7 +32,6 @@ public class MyAccountPage extends BasePage {
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(LOCATOR_INFORMATION));
     }
 
-
     /*private static final String BUTTON_LOCATOR_PATTERN = "//a[@title='%s']";
     private By buttonLocator;
     // Orders   //Credit slips  //Addresses  //Information  //My wishlists
@@ -40,8 +39,5 @@ public class MyAccountPage extends BasePage {
         buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, label));
         driver.findElement(buttonLocator).click();
     }*/
-
-
-
 
 }

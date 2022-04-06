@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Input extends AbstractComponent {
 
-    private static final String INPUT_LOCATOR_PATTERN = "//body//div//form//input[@id='%s']";
+    private static final String INPUT_LOCATOR_PATTERN = "//input[@id='%s']";
 
     private String label;
     private By inputLocator;

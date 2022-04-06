@@ -29,7 +29,7 @@ public class AccountDetailsComponent extends AbstractComponent {
     }
 
     public String getValue(){
-        return driver.findElement(textFieldLocator).getText();
+        return driver.findElement(textFieldLocator).getAttribute("value");
     }
 
 
