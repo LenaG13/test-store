@@ -1,26 +1,23 @@
 package model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
+@Builder
 public class AccountModel {
 
-    String Title;
-    String FirstName;
-    String LastName;
-    String Email;
-    String Password;
-    String Address;
-    String City;
-    String State;
-    String Zip;
-    String Country;
-    String MobilePhone;
+    private String Title;
+    private String FirstName;
+    private String LastName;
+    private String Email;
+    private String Password;
+    private String Address;
+    private String City;
+    private String State;
+    private String Zip;
+    private String Country;
+    private String MobilePhone;
 
 }

@@ -53,5 +53,4 @@ public class AccountTest extends BaseTest {
         myAccountsSteps.validatePersonalInfo(testPersonInfoModel);
     }
 
-
 }

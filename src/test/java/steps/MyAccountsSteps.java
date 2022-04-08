@@ -1,23 +1,21 @@
 package steps;
 
 import components.account.AccountDetailsComponent;
-
-import model.AccountModel;
+import io.qameta.allure.Step;
 import model.PersonalInfoModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.AuthenticationPage;
 import pages.MyAccountPage;
 
 public class MyAccountsSteps extends AbstractStep {
 
-    private AuthenticationPage authenticationPage;
     private MyAccountPage myAccountPage;
 
     public MyAccountsSteps(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Validate Personal Info from RegisteredAccount")
     public void validatePersonalInfo(PersonalInfoModel expectedPersonInfo){
         myAccountPage = new MyAccountPage(driver);
         myAccountPage.openInformation();
@@ -29,12 +27,14 @@ public class MyAccountsSteps extends AbstractStep {
         );
     }
 
+    @Step("Get Actual Personal Info")
     private PersonalInfoModel getActualPersonInfoAccount() {
-        PersonalInfoModel actualPersonalInfoModel = new PersonalInfoModel();
-        actualPersonalInfoModel.setFirstName(new AccountDetailsComponent(driver, "firstname").getValue());
-        actualPersonalInfoModel.setLastName(new AccountDetailsComponent(driver, "lastname").getValue());
-        actualPersonalInfoModel.setEmail(new AccountDetailsComponent(driver, "email").getValue());
-        return actualPersonalInfoModel;
+        PersonalInfoModel actualPersonInfo = PersonalInfoModel.builder()
+                .FirstName(new AccountDetailsComponent(driver, "firstname").getValue())
+                .LastName(new AccountDetailsComponent(driver, "lastname").getValue())
+                .Email(new AccountDetailsComponent(driver, "email").getValue())
+                .build();
+        return actualPersonInfo;
     }
 
 }

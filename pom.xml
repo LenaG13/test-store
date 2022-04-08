@@ -67,8 +67,6 @@
                     </argLine>
                     <systemPropertyVariables>
                         <browser>${default.browser}</browser>
-                        <email>54uch@mail2run.com</email>
-                        <password>Qwerty123</password>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>${testNgSuiteFilePath}${suite}.xml</suiteXmlFile>

@@ -2,6 +2,7 @@ package steps;
 
 import components.buttons.authorize.NewAccountButton;
 import components.buttons.authorize.RegisteredButton;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.AuthenticationPage;
@@ -25,6 +26,7 @@ public class AuthenticationSteps extends AbstractStep {
         super(driver);
     }
 
+    @Step("Login and Open CreateNewAccount page")
     public CreateAccountSteps openCreateNewAccountPage() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
@@ -35,6 +37,7 @@ public class AuthenticationSteps extends AbstractStep {
         return new CreateAccountSteps(driver);
     }
 
+    @Step("Login and Open RegisteredAccount page")
     public MyAccountsSteps openRegisteredAccountPage() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
@@ -45,6 +48,8 @@ public class AuthenticationSteps extends AbstractStep {
         return new MyAccountsSteps(driver);
     }
 
+    //TODO метод на assert
+    @Step("Check Form CreateNewAccount")
     public AuthenticationSteps checkFormCreateNewAccount() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
@@ -56,6 +61,8 @@ public class AuthenticationSteps extends AbstractStep {
         return this;
     }
 
+    //TODO метод на assert
+    @Step("Check Form RegisteredAccount")
     public AuthenticationSteps checkFormRegisteredAccount() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();

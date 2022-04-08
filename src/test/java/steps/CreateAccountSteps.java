@@ -1,19 +1,17 @@
 package steps;
 
 import components.buttons.authorize.RegisterButton;
-import components.buttons.authorize.RegisteredButton;
 import components.forms.Dropdown;
 import components.forms.Input;
+import io.qameta.allure.Step;
 import model.AccountModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.AuthenticationPage;
 import pages.CreateAccountPage;
 import pages.MyAccountPage;
 
 public class CreateAccountSteps extends AbstractStep {
 
-    private AuthenticationPage authenticationPage;
     private CreateAccountPage createAccountPage;
     private RegisterButton registerButton;
     private MyAccountPage myAccountPage;
@@ -22,6 +20,8 @@ public class CreateAccountSteps extends AbstractStep {
         super(driver);
     }
 
+    //TODO метод на assert
+    @Step("Create new Account")
     public CreateAccountSteps createNewAccount(AccountModel accountModel) {
         createAccountPage = new CreateAccountPage(driver);
         Assert.assertTrue(
@@ -36,6 +36,7 @@ public class CreateAccountSteps extends AbstractStep {
         return this;
     }
 
+    @Step("Fill Account form")
     private void fillAccountForm(AccountModel accountModel) {
         new Input(driver, "customer_firstname").insert(accountModel.getFirstName());
         new Input(driver, "customer_lastname").insert(accountModel.getLastName());

@@ -35,4 +35,5 @@ public class Dropdown extends AbstractComponent {
         driver.findElement(optionLocator).click();
         explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(dropdownLocator, optionName));
     }
+
 }

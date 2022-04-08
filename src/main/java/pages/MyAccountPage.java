@@ -1,5 +1,7 @@
 package pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +13,8 @@ public class MyAccountPage extends BasePage {
 
     private static final By INFORMATION_BUTTON = By.xpath("//a[@title='Information']");
     public static final By LOCATOR_INFORMATION =By.xpath("//body//div//h1[contains(text(),'information')]");
+
+    Logger log = LogManager.getLogger(AuthenticationPage.class);
 
     public MyAccountPage(WebDriver driver) {
         super(driver);
@@ -28,6 +32,7 @@ public class MyAccountPage extends BasePage {
     }
 
     public void openInformation() {
+        log.info("Click [{}] button", "My personal information");
         driver.findElement(INFORMATION_BUTTON).click();
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(LOCATOR_INFORMATION));
     }
