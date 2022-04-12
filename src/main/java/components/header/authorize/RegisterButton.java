@@ -1,4 +1,4 @@
-package components.buttons.authorize;
+package components.header.authorize;
 
 import org.openqa.selenium.WebDriver;
 

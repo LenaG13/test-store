@@ -2,17 +2,17 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.BasePage;
+import pages.AbstractPage;
 
-public class AbstractStep {
+public abstract class AbstractStep {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     public AbstractStep(WebDriver driver) {
         this.driver = driver;
     }
 
-    protected void validatePageIsLoaded(BasePage page) {
+    protected void validatePageIsLoaded(AbstractPage page) {
         Assert.assertTrue(page.isPageLoaded(), page.getClass().getSimpleName().concat(" is not opened: "));
     }
 

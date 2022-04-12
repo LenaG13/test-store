@@ -2,6 +2,7 @@ package shoptest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,6 +11,8 @@ import steps.CreateAccountSteps;
 import steps.MyAccountsSteps;
 import steps.MainSteps;
 import utils.CapabilitiesGenerator;
+
+import java.time.Duration;
 
 public class BaseTest {
 

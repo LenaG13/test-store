@@ -1,10 +1,12 @@
-package components.forms;
+package components.fields;
 
 import components.AbstractComponent;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class Dropdown extends AbstractComponent {
 
     private static final String DROPDOWN_LOCATOR_PATTERN = "//select[@id='%s']";
@@ -25,6 +27,7 @@ public class Dropdown extends AbstractComponent {
     }
 
     private void openOptionPopup() {
+        log.info("Click on Dropdown");
         driver.findElement(dropdownLocator).click();
     }
 
@@ -32,6 +35,7 @@ public class Dropdown extends AbstractComponent {
         openOptionPopup();
         By optionLocator = By.xpath(String.format(OPTION_LOCATOR_PATTERN, label, optionName));
         //explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(optionLocator));
+        log.info("Click on [{}] option from Dropdown", optionName);
         driver.findElement(optionLocator).click();
         explicitlyWait.until(ExpectedConditions.textToBePresentInElementLocated(dropdownLocator, optionName));
     }

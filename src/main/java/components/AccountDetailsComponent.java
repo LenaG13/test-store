@@ -1,4 +1,4 @@
-package components.account;
+package components;
 
 import components.AbstractComponent;
 import org.openqa.selenium.By;
@@ -28,9 +28,8 @@ public class AccountDetailsComponent extends AbstractComponent {
         return true;
     }
 
-    public String getValue(){
+    public String getValue() {
         return driver.findElement(textFieldLocator).getAttribute("value");
     }
-
 
 }

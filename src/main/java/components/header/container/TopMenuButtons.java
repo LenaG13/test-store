@@ -1,25 +1,29 @@
-package components.buttons.navigate;
+package components.header.container;
 
 import components.AbstractComponent;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public abstract class NavigateButtons extends AbstractComponent {
+@Log4j2
+public abstract class TopMenuButtons extends AbstractComponent {
 
-    private static final String BUTTON_LOCATOR_PATTERN = "//nav//a[contains(@title,'%s')]";
+    private static final String BUTTON_LOCATOR_PATTERN = "//div[@id='block_top_menu']/ul/li/a[@title='%s']";
+
     private String label;
     private By buttonLocator;
 
-    public NavigateButtons(WebDriver driver, String label) {
+    public TopMenuButtons(WebDriver driver, String label) {
         super(driver);
         this.label = label;
         this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, label));
     }
 
     public void click() {
+        log.info("Click on Top Menu on Header");
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(buttonLocator));
     }
 
@@ -32,4 +36,5 @@ public abstract class NavigateButtons extends AbstractComponent {
         }
         return true;
     }
+
 }

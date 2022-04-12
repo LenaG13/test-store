@@ -1,9 +1,11 @@
-package components.forms;
+package components.fields;
 
 import components.AbstractComponent;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class Input extends AbstractComponent {
 
     private static final String INPUT_LOCATOR_PATTERN = "//input[@id='%s']";
@@ -23,6 +25,8 @@ public class Input extends AbstractComponent {
     }
 
     public void insert(String text) {
+        //driver.findElement(inputLocator).clear();
+        log.info("Insert [{}] into [{}] field", text,"input");
         driver.findElement(inputLocator).sendKeys(text);
     }
 

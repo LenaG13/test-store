@@ -14,7 +14,7 @@
                     <include name="openAuthenticationPageTest"/>
                     <include name="checkFormCreateNewAccountTest"/>
                     <include name="checkFormRegisteredAccountTest"/>
-                    <exclude name="openCreateNewAccountPageTest"/>
+                    <include name="openCreateNewAccountPageTest"/>
                     <include name="openRegisteredAccountPageTest"/>
                     <include name="addNewAccountTest"/>
                     <include name="validateAccountTest"/>

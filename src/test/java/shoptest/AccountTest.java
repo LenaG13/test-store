@@ -3,8 +3,8 @@ package shoptest;
 import model.AccountModel;
 import model.PersonalInfoModel;
 import org.testng.annotations.Test;
-import utils.AccountModelUtils;
-import utils.PersonalInfoUtils;
+import constans.AccountModelConstant;
+import constans.PersonalInfoConstant;
 
 public class AccountTest extends BaseTest {
 
@@ -35,8 +35,8 @@ public class AccountTest extends BaseTest {
         authenticationSteps.openRegisteredAccountPage();
     }
 
-    AccountModel testAccount = AccountModelUtils.getDefaultAccountModel();
-    PersonalInfoModel testPersonInfoModel= PersonalInfoUtils.getDefaultPersonalInfoModel();
+    AccountModel testAccount = AccountModelConstant.getDefaultAccountModel();
+    PersonalInfoModel testPersonInfoModel = PersonalInfoConstant.getDefaultPersonalInfoModel();
 
     @Test
     public void addNewAccountTest() {

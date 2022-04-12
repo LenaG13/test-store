@@ -8,9 +8,9 @@ import lombok.*;
 @Builder
 public class PersonalInfoModel {
 
-    String Title;
-    String FirstName;
-    String LastName;
-    String Email;
+    private String Title;
+    private String FirstName;
+    private String LastName;
+    private String Email;
 
 }

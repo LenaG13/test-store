@@ -1,4 +1,4 @@
-package components.buttons.menu;
+package components.header.authorize;
 
 import components.AbstractComponent;
 import org.openqa.selenium.By;
@@ -7,14 +7,14 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public abstract class MenuButtons extends AbstractComponent {
+public abstract class AuthorizeButtons extends AbstractComponent {
 
-    private static final String BUTTON_LOCATOR_PATTERN = "//div[@id='block_top_menu']/ul/li/a[@title='%s']";
+    private static final String BUTTON_LOCATOR_PATTERN = "//form//button[@id='%s']";
 
     private String label;
     private By buttonLocator;
 
-    public MenuButtons(WebDriver driver, String label) {
+    public AuthorizeButtons(WebDriver driver, String label) {
         super(driver);
         this.label = label;
         this.buttonLocator = By.xpath(String.format(BUTTON_LOCATOR_PATTERN, label));

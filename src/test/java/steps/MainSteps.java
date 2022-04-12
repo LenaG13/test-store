@@ -1,6 +1,6 @@
 package steps;
 
-import components.buttons.navigate.SignInButton;
+import components.header.navigate.SignInButton;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -21,6 +21,7 @@ public class MainSteps extends AbstractStep {
     public MainSteps openHomePage() {
         homePage = new HomePage(driver);
         homePage.openPage();
+        homePage.openRefreshPage();
         validatePageIsLoaded(homePage);
         return this;
     }

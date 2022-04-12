@@ -6,13 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class MyAccountPage extends BasePage {
+public class MyAccountPage extends AbstractPage {
 
-    private static final String BASE_URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
-    public static final By HEADER =By.xpath("//body//h1[contains(text(),'My account')]");
+    private static final String BASE_URL = "http://prestashop.qatestlab.com.ua/en/my-account";
+    public static final By HEADER = By.xpath("//h1[contains(.,'My account')]");
 
     private static final By INFORMATION_BUTTON = By.xpath("//a[@title='Information']");
-    public static final By LOCATOR_INFORMATION =By.xpath("//body//div//h1[contains(text(),'information')]");
+    public static final By LOCATOR_INFORMATION = By.xpath("//body//div//h1[contains(text(),'information')]");
 
     Logger log = LogManager.getLogger(AuthenticationPage.class);
 
@@ -26,7 +26,7 @@ public class MyAccountPage extends BasePage {
     }
 
     @Override
-    public BasePage openPage() {
+    public AbstractPage openPage() {
         driver.get(BASE_URL);
         return this;
     }

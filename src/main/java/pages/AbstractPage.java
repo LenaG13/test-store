@@ -6,19 +6,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public abstract class BasePage {
+public abstract class AbstractPage {
 
-    WebDriver driver;
-    WebDriverWait explicitlyWait;
+    protected WebDriver driver;
+    protected WebDriverWait explicitlyWait;
 
-    public BasePage(WebDriver driver) {
+    public AbstractPage(WebDriver driver) {
         this.driver = driver;
         this.explicitlyWait = new WebDriverWait(driver, Duration.ofSeconds(40));
     }
 
     abstract public void waitPageLoaded();
 
-    abstract public BasePage openPage();
+    abstract public AbstractPage openPage();
 
     public boolean isPageLoaded() {
         try {

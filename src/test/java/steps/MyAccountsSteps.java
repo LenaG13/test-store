@@ -1,6 +1,6 @@
 package steps;
 
-import components.account.AccountDetailsComponent;
+import components.AccountDetailsComponent;
 import io.qameta.allure.Step;
 import model.PersonalInfoModel;
 import org.openqa.selenium.WebDriver;

@@ -1,14 +1,15 @@
 package steps;
 
-import components.buttons.authorize.NewAccountButton;
-import components.buttons.authorize.RegisteredButton;
+import components.header.authorize.NewAccountButton;
+import components.header.authorize.RegisteredButton;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.AuthenticationPage;
 import pages.CreateAccountPage;
 import pages.MyAccountPage;
-import utils.PropertiesUtils;
+
+import static constans.LoginConstant.*;
 
 public class AuthenticationSteps extends AbstractStep {
 
@@ -17,10 +18,6 @@ public class AuthenticationSteps extends AbstractStep {
     private RegisteredButton registeredButton;
     private CreateAccountPage createAccountPage;
     private MyAccountPage myAccountPage;
-
-    public static final String NEW_VALID_EMAIL = PropertiesUtils.getEnv("emailNew");
-    public static final String VALID_EMAIL = PropertiesUtils.getEnv("email");
-    public static final String VALID_PASSWORD = PropertiesUtils.getEnv("password");
 
     public AuthenticationSteps(WebDriver driver) {
         super(driver);
@@ -31,7 +28,7 @@ public class AuthenticationSteps extends AbstractStep {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
         validatePageIsLoaded(authenticationPage);
-        authenticationPage.createNewAccount(NEW_VALID_EMAIL);
+        authenticationPage.createNewAccount(VALID_EMAIL_NEW);
         createAccountPage = new CreateAccountPage(driver);
         validatePageIsLoaded(createAccountPage);
         return new CreateAccountSteps(driver);
@@ -48,7 +45,6 @@ public class AuthenticationSteps extends AbstractStep {
         return new MyAccountsSteps(driver);
     }
 
-    //TODO метод на assert
     @Step("Check Form CreateNewAccount")
     public AuthenticationSteps checkFormCreateNewAccount() {
         authenticationPage = new AuthenticationPage(driver);
@@ -61,7 +57,6 @@ public class AuthenticationSteps extends AbstractStep {
         return this;
     }
 
-    //TODO метод на assert
     @Step("Check Form RegisteredAccount")
     public AuthenticationSteps checkFormRegisteredAccount() {
         authenticationPage = new AuthenticationPage(driver);
