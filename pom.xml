@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>ElenaGorelik</groupId>
     <artifactId>test-store</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -67,8 +67,6 @@
                     </argLine>
                     <systemPropertyVariables>
                         <browser>${default.browser}</browser>
-                        <email>54uch@mail2run.com</email>
-                        <password>Qwerty123</password>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>${testNgSuiteFilePath}${suite}.xml</suiteXmlFile>
