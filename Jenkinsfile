@@ -12,9 +12,6 @@ pipeline {
                 // Get some code from a GitHub repository
                 git 'https://github.com/LenaG13/test-store.git'
 
-                // Run Maven on a Unix agent.
-                // sh "mvn -Dmaven.test.failure.ignore=true clean package"
-
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
                 bat "mvn clean test -Dmaven.test.failure.ignore=true -Dmaven.compiler.source=11 -Dmaven.compiler.target=11"
@@ -43,7 +40,5 @@ pipeline {
                 }
             }
         }
-
     }
-
 }
