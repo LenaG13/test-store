@@ -50,10 +50,10 @@ public class AuthenticationPage extends AbstractPage {
         driver.findElement(SIGN_IN_BUTTON).click();
     }
 
-    /*public AuthenticationPage openRefreshPage() {
+    public AuthenticationPage openRefreshPage() {
         log.info("Open [{}] navigate to url", BASE_URL);
         driver.navigate().to(BASE_URL);
         return this;
-    }*/
+    }
 
 }

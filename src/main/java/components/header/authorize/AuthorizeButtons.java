@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @Log4j2
 public abstract class AuthorizeButtons extends AbstractComponent {
 
-    private static final String BUTTON_LOCATOR_PATTERN = "//form//button[@id='%s']";
+    private static final String BUTTON_LOCATOR_PATTERN = "//form//button[contains(.,'%s')]/span";
 
     private String label;
     private By buttonLocator;

@@ -27,9 +27,11 @@ public class AuthenticationSteps extends AbstractStep {
     public CreateAccountSteps openCreateNewAccountPage() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
+        authenticationPage.openRefreshPage();
         validatePageIsLoaded(authenticationPage);
         authenticationPage.createNewAccount(VALID_EMAIL_NEW);
-        validatePageIsLoaded(new CreateAccountPage(driver));
+        createAccountPage = new CreateAccountPage(driver);
+        validatePageIsLoaded(createAccountPage);
         return new CreateAccountSteps(driver);
     }
 
@@ -37,9 +39,11 @@ public class AuthenticationSteps extends AbstractStep {
     public MyAccountsSteps openRegisteredAccountPage() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
+        authenticationPage.openRefreshPage();
         validatePageIsLoaded(authenticationPage);
         authenticationPage.registeredAccount(VALID_EMAIL, VALID_PASSWORD);
-        validatePageIsLoaded(new MyAccountPage(driver));
+        myAccountPage = new MyAccountPage(driver);
+        validatePageIsLoaded(myAccountPage);
         return new MyAccountsSteps(driver);
     }
 
@@ -47,6 +51,7 @@ public class AuthenticationSteps extends AbstractStep {
     public AuthenticationSteps checkFormCreateNewAccount() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
+        authenticationPage.openRefreshPage();
         newAccountButton = new NewAccountButton(driver);
         Assert.assertTrue(
                 newAccountButton.isComponentDisplayed(),
@@ -59,6 +64,7 @@ public class AuthenticationSteps extends AbstractStep {
     public AuthenticationSteps checkFormRegisteredAccount() {
         authenticationPage = new AuthenticationPage(driver);
         authenticationPage.openPage();
+        authenticationPage.openRefreshPage();
         registeredButton = new RegisteredButton(driver);
         Assert.assertTrue(
                 registeredButton.isComponentDisplayed(),

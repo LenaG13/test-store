@@ -25,7 +25,7 @@ public class CapabilitiesGenerator {
         log.info("Operational System: " + os + "; Driver path: " + driver_path);
         System.setProperty("webdriver.chrome.driver", driver_path);
 
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
