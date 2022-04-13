@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="tests" thread-count="1">
+<suite name="All Test Suite" parallel="tests" thread-count="2">
 
     <test name="C:/Users/48534/IdeaProjects/test-store">
         <classes>
-            <class name="shoptest.HomePageTest">
+            <class name="shoptest.SignInTest">
                 <methods>
                     <include name="openHomePageTest"/>
+                    <include name="openAuthenticationPageTest"/>
+                    <include name="checkFormCreateNewAccountTest"/>
+                    <include name="checkFormRegisteredAccountTest"/>
                 </methods>
             </class>
             <class name="shoptest.AccountTest">
                 <methods>
-                    <include name="openAuthenticationPageTest"/>
-                    <include name="checkFormCreateNewAccountTest"/>
-                    <include name="checkFormRegisteredAccountTest"/>
                     <include name="openCreateNewAccountPageTest"/>
                     <include name="openRegisteredAccountPageTest"/>
                     <include name="addNewAccountTest"/>

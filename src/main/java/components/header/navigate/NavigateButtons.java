@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @Log4j2
 public abstract class NavigateButtons extends AbstractComponent {
 
-    private static final String BUTTON_LOCATOR_PATTERN = "//nav/div[contains(.,'%s')]";
+    private static final String BUTTON_LOCATOR_PATTERN = "//nav/div[contains(.,'%s')]/a";
     private String label;
     private By buttonLocator;
 

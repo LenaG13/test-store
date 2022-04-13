@@ -1,11 +1,13 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class MyAccountPage extends AbstractPage {
 
     private static final String BASE_URL = "http://prestashop.qatestlab.com.ua/en/my-account";
@@ -13,8 +15,6 @@ public class MyAccountPage extends AbstractPage {
 
     private static final By INFORMATION_BUTTON = By.xpath("//a[@title='Information']");
     public static final By LOCATOR_INFORMATION = By.xpath("//body//div//h1[contains(text(),'information')]");
-
-    Logger log = LogManager.getLogger(AuthenticationPage.class);
 
     public MyAccountPage(WebDriver driver) {
         super(driver);
@@ -27,6 +27,7 @@ public class MyAccountPage extends AbstractPage {
 
     @Override
     public AbstractPage openPage() {
+        log.info("Open [{}] url", BASE_URL);
         driver.get(BASE_URL);
         return this;
     }

@@ -29,8 +29,7 @@ public class AuthenticationSteps extends AbstractStep {
         authenticationPage.openPage();
         validatePageIsLoaded(authenticationPage);
         authenticationPage.createNewAccount(VALID_EMAIL_NEW);
-        createAccountPage = new CreateAccountPage(driver);
-        validatePageIsLoaded(createAccountPage);
+        validatePageIsLoaded(new CreateAccountPage(driver));
         return new CreateAccountSteps(driver);
     }
 
@@ -40,8 +39,7 @@ public class AuthenticationSteps extends AbstractStep {
         authenticationPage.openPage();
         validatePageIsLoaded(authenticationPage);
         authenticationPage.registeredAccount(VALID_EMAIL, VALID_PASSWORD);
-        myAccountPage = new MyAccountPage(driver);
-        validatePageIsLoaded(myAccountPage);
+        validatePageIsLoaded(new MyAccountPage(driver));
         return new MyAccountsSteps(driver);
     }
 

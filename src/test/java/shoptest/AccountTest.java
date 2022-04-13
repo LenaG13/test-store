@@ -8,29 +8,12 @@ import constans.PersonalInfoConstant;
 
 public class AccountTest extends BaseTest {
 
-    @Test
-    public void openAuthenticationPageTest() {
-        mainSteps
-                .openHomePage()
-                .openAuthenticationPage();
-    }
-
-    @Test
-    public void checkFormCreateNewAccountTest() {
-        authenticationSteps.checkFormCreateNewAccount();
-    }
-
-    @Test
-    public void checkFormRegisteredAccountTest() {
-        authenticationSteps.checkFormRegisteredAccount();
-    }
-
-    @Test
+    @Test(groups = "smoke")
     public void openCreateNewAccountPageTest() {
         authenticationSteps.openCreateNewAccountPage();
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void openRegisteredAccountPageTest() {
         authenticationSteps.openRegisteredAccountPage();
     }
@@ -38,7 +21,7 @@ public class AccountTest extends BaseTest {
     AccountModel testAccount = AccountModelConstant.getDefaultAccountModel();
     PersonalInfoModel testPersonInfoModel = PersonalInfoConstant.getDefaultPersonalInfoModel();
 
-    @Test
+    @Test(groups = "smoke")
     public void addNewAccountTest() {
         mainSteps
                 .openHomePage()
@@ -47,7 +30,7 @@ public class AccountTest extends BaseTest {
                 .createNewAccount(testAccount);
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void validateAccountTest() {
         authenticationSteps.openRegisteredAccountPage();
         myAccountsSteps.validatePersonalInfo(testPersonInfoModel);
