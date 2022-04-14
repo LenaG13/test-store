@@ -48,6 +48,7 @@ public class BaseTest {
         authenticationSteps = new AuthenticationSteps(driver);
         createAccountSteps = new CreateAccountSteps(driver);
         myAccountsSteps = new MyAccountsSteps(driver);
+
     }
 
     private void setContextAttribute(ITestContext iTestContext, String attributeKey, Object attributeValue) {
