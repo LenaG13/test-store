@@ -25,8 +25,8 @@ patterns:
 
 | step | desc | expected result |
 | --- | --- |  --- |
-| 1 | open Create New Account page) | Create New Account page loaded |
-| 2 | open Registered Account page) | Registered Account page loaded |
+| 1 | open Create New Account page | Create New Account page loaded |
+| 2 | open Registered Account page | Registered Account page loaded |
 | 3 | add New Account | New Account added into account list |
 | 4 | validate Registered Account | check that adding info is displayed |
 
