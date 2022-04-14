@@ -37,6 +37,7 @@ public class MainSteps extends AbstractStep {
         authenticationPage = new AuthenticationPage(driver);
         validatePageIsLoaded(authenticationPage);
         return new AuthenticationSteps(driver);
+
     }
 
 }
